@@ -13,6 +13,7 @@
 		1E16A43A2849EFA7006D5B15 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E16A4392849EFA7006D5B15 /* Preview Assets.xcassets */; };
 		1E16A4432849F01E006D5B15 /* HelloCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E16A4412849F01E006D5B15 /* HelloCoreDataModel.xcdatamodeld */; };
 		1E16A4462849F122006D5B15 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E16A4452849F122006D5B15 /* CoreDataManager.swift */; };
+		1EDAB0DB28500D5800ACB295 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDAB0DA28500D5800ACB295 /* MovieDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		1E16A4392849EFA7006D5B15 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1E16A4422849F01E006D5B15 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		1E16A4452849F122006D5B15 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		1EDAB0DA28500D5800ACB295 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				1E16A4342849EFA6006D5B15 /* ContentView.swift */,
 				1E16A4362849EFA7006D5B15 /* Assets.xcassets */,
 				1E16A4382849EFA7006D5B15 /* Preview Content */,
+				1EDAB0DA28500D5800ACB295 /* MovieDetailView.swift */,
 			);
 			path = CoreDataSwiftUI;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EDAB0DB28500D5800ACB295 /* MovieDetailView.swift in Sources */,
 				1E16A4352849EFA6006D5B15 /* ContentView.swift in Sources */,
 				1E16A4332849EFA6006D5B15 /* CoreDataSwiftUIApp.swift in Sources */,
 				1E16A4462849F122006D5B15 /* CoreDataManager.swift in Sources */,

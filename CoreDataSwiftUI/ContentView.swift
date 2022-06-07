@@ -14,34 +14,43 @@ struct ContentView: View {
     @State private var movies: [Movie] = []
     
     var body: some View {
-        VStack {
-            TextField("Enter movie name", text: $movieName)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            Button(action: {
-                coreDM.saveMovie(title: movieName)
-                populateMovies()
-            }, label: {
-                Text("Save")
-            })
-            
-            List {
-                ForEach(movies, id: \.self) { movie in
-                    Text(movie.title ?? "")
-                }.onDelete { indexSet in
-                    indexSet.forEach { index in
-                        let movie = movies[index]
-                        coreDM.deleteMovie(movie: movie)
-                        populateMovies()
+        NavigationView {
+            VStack {
+                TextField("Enter movie name", text: $movieName)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                Button(action: {
+                    coreDM.saveMovie(title: movieName)
+                    populateMovies()
+                }, label: {
+                    Text("Save")
+                })
+                
+                List {
+                    ForEach(movies, id: \.self) { movie in
+                        NavigationLink(
+                            destination: MovieDetailView(
+                                movie: movie,
+                                coreDM: coreDM
+                            ), label: {
+                                Text(movie.title ?? "")
+                            })
+                    }.onDelete { indexSet in
+                        indexSet.forEach { index in
+                            let movie = movies[index]
+                            coreDM.deleteMovie(movie: movie)
+                            populateMovies()
+                        }
                     }
-                }
+                }.listStyle(PlainListStyle())
+                
+                Spacer()
             }
-            
-            Spacer()
-        }
-        .padding()
-        .onAppear {
-            populateMovies()
+            .padding()
+            .onAppear {
+                populateMovies()
+            }
+
         }
     }
     
