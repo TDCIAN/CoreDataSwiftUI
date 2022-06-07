@@ -22,6 +22,21 @@ class CoreDataManager {
         }
     }
     
+    func updateMovie() {
+        
+    }
+    
+    func deleteMovie(movie: Movie) {
+        persistentContainer.viewContext.delete(movie)
+        
+        do {
+            try persistentContainer.viewContext.save()
+        } catch {
+            persistentContainer.viewContext.rollback()
+            print("Failed to save context \(error.localizedDescription)")
+        }
+    }
+    
     func getAllMovies() -> [Movie] {
         let fetchRequest: NSFetchRequest<Movie> = Movie.fetchRequest()
         do {

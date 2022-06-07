@@ -25,8 +25,16 @@ struct ContentView: View {
                 Text("Save")
             })
             
-            List(movies, id: \.self) { movie in
-                Text(movie.title ?? "")
+            List {
+                ForEach(movies, id: \.self) { movie in
+                    Text(movie.title ?? "")
+                }.onDelete { indexSet in
+                    indexSet.forEach { index in
+                        let movie = movies[index]
+                        coreDM.deleteMovie(movie: movie)
+                        populateMovies()
+                    }
+                }
             }
             
             Spacer()
