@@ -12,6 +12,7 @@ struct MovieDetailView: View {
     let movie: Movie
     @State private var movieName: String = ""
     let coreDM: CoreDataManager
+    @Binding var needRefresh: Bool
     
     var body: some View {
         VStack {
@@ -22,6 +23,7 @@ struct MovieDetailView: View {
                 if !movieName.isEmpty {
                     movie.title = movieName
                     coreDM.updateMovie()
+                    needRefresh.toggle()
                 }
             }, label: {
                 Text("Update")

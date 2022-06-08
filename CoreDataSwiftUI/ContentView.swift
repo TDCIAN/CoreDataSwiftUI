@@ -12,6 +12,7 @@ struct ContentView: View {
     
     @State private var movieName: String = ""
     @State private var movies: [Movie] = []
+    @State private var needRefresh: Bool = false
     
     var body: some View {
         NavigationView {
@@ -31,7 +32,8 @@ struct ContentView: View {
                         NavigationLink(
                             destination: MovieDetailView(
                                 movie: movie,
-                                coreDM: coreDM
+                                coreDM: coreDM,
+                                needRefresh: $needRefresh
                             ), label: {
                                 Text(movie.title ?? "")
                             })
@@ -43,6 +45,7 @@ struct ContentView: View {
                         }
                     }
                 }.listStyle(PlainListStyle())
+                .accentColor(needRefresh ? .white : .black)
                 
                 Spacer()
             }
@@ -56,11 +59,5 @@ struct ContentView: View {
     
     private func populateMovies() {
         movies = coreDM.getAllMovies()
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView(coreDM: CoreDataManager())
     }
 }
